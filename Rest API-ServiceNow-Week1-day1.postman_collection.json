@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "0533b49c-349e-4172-8608-7b98d462bcd0",
+		"name": "Rest API-ServiceNow-Week1-day1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34999229"
+	},
+	"item": [
+		{
+			"name": "Get-All-Incidents-By Query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"validate we are detting only database category\", function () {\r",
+							"    var jsonArray = pm.response.json();\r",
+							"    for(var i=0;i<jsonArray.length;i++){\r",
+							" pm.expect(jsonArray[i]).to.eql(\"database\");\r",
+							"    }\r",
+							"   \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{domainName}}.service-now.com/api/now/table/incident?sysparm_limit=10&sysparm_fields=sys_id,number,description,category,approval&sysparm_query=category=database",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domainName}}",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident"
+					],
+					"query": [
+						{
+							"key": "sysparm_limit",
+							"value": "10"
+						},
+						{
+							"key": "sysparm_fields",
+							"value": "sys_id,number,description,category,approval"
+						},
+						{
+							"key": "sysparm_query",
+							"value": "category=database"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All_Incident",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var jsonArray =pm.response.json().result;\r",
+							"console.log(jsonArray.length);\r",
+							"for(var i=0;i<jsonArray.length;i++)\r",
+							"{\r",
+							"    console.log(jsonArray[i].sys_id);\r",
+							"}\r",
+							"//console.log(jsonData.result.sys_id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domainName}}.service-now.com/api/now/table/incident",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domainName}}",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-All inc_all",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_description\": \"Short description 2/3/25 as of 8:10 AM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{domainName}}.service-now.com/api/now/table/incident",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domainName}}",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All_Change_Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domainName}}.service-now.com/api/now/table/change_request",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domainName}}",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"change_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "path_calls",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domainName}}.service-now.com/api/now/table/:tableName/:sys_id",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domainName}}",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "0c5f3cece1b12010f877971dea0b1449"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "a",
+			"value": ""
+		}
+	]
+}
