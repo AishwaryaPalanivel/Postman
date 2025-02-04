@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "9046dbc8-7075-47db-b8ca-455647480451",
+		"name": "Rest-API-Week2-Day1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34999229"
+	},
+	"item": [
+		{
+			"name": "Update_Incident_Record",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_description\": \"MY OFFICE LAPTOP UNABLE TO REBOOT\",\r\n    \"description\": \"RAS\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev241313.service-now.com/api/now/table/:tableName/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev241313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "03bc7ee8c3ab5210e8c7de1d050131fa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Incident_Record_Using Put Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_description\": \"MY OFFICE LAPTOP has assert id\",\r\n    \"description\": \"RAS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev241313.service-now.com/api/now/table/:tableName/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev241313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "03bc7ee8c3ab5210e8c7de1d050131fa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Incident_Record_Using Patch",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_description\": \"MY OFFICE LAPTOP has assert id\",\r\n    \"description\": \"RAS001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev241313.service-now.com/api/now/table/:tableName/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev241313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "03bc7ee8c3ab5210e8c7de1d050131fa"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
