@@ -182,6 +182,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create_OAuth_Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "f9707fb532234df4826c2fa9a5804862",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "SjKk!x5v,^",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "zZsh$F0bDM4/",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev241313.service-now.com/oauth_token.do",
+					"protocol": "https",
+					"host": [
+						"dev241313",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"oauth_token.do"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
